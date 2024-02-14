@@ -18,7 +18,7 @@ This is a simple weather application built with Node.JS and Express, which utili
 ## Usage
 - Clone the repository to your local machine.
 - Install dependencies using npm install.
-- Start the server using npm start.
+- Start the server using npm run dev.
 - Open your web browser and navigate to http://localhost:5500.
 - Enter the name of a city in the search input and click the "Search" button to view weather information for that city.
 
