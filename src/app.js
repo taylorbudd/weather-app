@@ -15,17 +15,22 @@ app.get('/', (req, res) => {
     });
 });
 
-let cityName = ""
 app.get('/search', async (req, res) => {
-    console.log("hey")
     cityName = req.query.city
-    console.log("city name: " + cityName)
+
     let API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
-    console.log("API URL: " + API_URL);
+
     const response = await fetch(API_URL);
-    const data = await response.json()
-    console.log(data);
-    res.json(data)
+    const data = await response.json();
+    
+    const weatherData = {
+        weather_icon: data.weather["0"].main,
+        temp: Math.floor(data.main.temp),
+        city: data.name,
+        humidity: Math.floor(data.main.humidity),
+        wind: Math.floor(data.wind.speed)
+    }
+    res.json(weatherData);
 });
 
 app.listen(5500, () => {
