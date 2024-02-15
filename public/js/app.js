@@ -18,14 +18,7 @@ const handleSearch = async () => {
         }
       })
       .then((res) => {
-        const weatherData = {
-            weather_icon: res.weather["0"].main,
-            temp: res.main.temp,
-            city: res.name,
-            humidity: res.main.humidity,
-            wind: res.wind.speed
-        }
-        displayData(weatherData);
+        displayData(res);
       })
       .catch((err) => {
         throw new Error(err);
